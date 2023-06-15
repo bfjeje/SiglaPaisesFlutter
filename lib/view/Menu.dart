@@ -22,13 +22,13 @@ class Menu extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.search),
-              title: Text("Pesquisar"),
+              leading: const Icon(Icons.search),
+              title: const Text("Pesquisar"),
               onTap: () => {},
             ),
             ListTile(
-              leading: Icon(Icons.help),
-              title: Text("Ajuda"),
+              leading: const Icon(Icons.help),
+              title: const Text("Ajuda"),
               onTap: () => {},
             )
           ],
