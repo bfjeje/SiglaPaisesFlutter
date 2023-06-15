@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sigla_paises_flutter/view/ajuda.dart';
 
 class Menu extends StatelessWidget {
   const Menu({super.key});
@@ -29,7 +30,11 @@ class Menu extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.help),
               title: const Text("Ajuda"),
-              onTap: () => {},
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder:
+                  (BuildContext context) => const Ajuda()));
+              },
             )
           ],
         ),
