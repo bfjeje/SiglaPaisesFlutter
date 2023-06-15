@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sigla_paises_flutter/view/Menu.dart';
+import 'package:sigla_paises_flutter/view/menu.dart';
 import 'package:sigla_paises_flutter/view/paises_dados.dart';
 
 class PaisesScreen extends StatelessWidget {
