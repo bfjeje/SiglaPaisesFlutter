@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sigla_paises_flutter/view/ajuda.dart';
+import 'package:sigla_paises_flutter/view/Ajuda.dart';
 
 class Menu extends StatelessWidget {
   const Menu({super.key});
