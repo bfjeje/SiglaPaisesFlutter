@@ -44,11 +44,26 @@ class _PaisesDadosState extends State<PaisesDados> {
                 itemBuilder: (context, index) {
                   return Card(
                     child: ExpansionTile(
-                      title: Text("${paises[index]["name"]}"),
+                      title: Text(
+                        "${paises[index]["name"]}",
+                        style: const TextStyle(
+                            color: Colors.blueAccent,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.0),
+                      ),
                       children: [
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          child: Text("${paises[index]["code"]}"),
+                        Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Container(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "${paises[index]["code"] ?? "--"}",
+                              style: const TextStyle(
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16.0),
+                            ),
+                          ),
                         )
                       ],
                     ),
