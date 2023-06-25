@@ -86,8 +86,13 @@ class _PaisesDadosState extends State<PaisesDados> {
 
   List<Map<String, dynamic>>? _filtraPais(String pais, List<Map<String, dynamic>>? paises, BuildContext context) {
     List<Map<String, dynamic>> filtro = List.empty(growable: true);
+    String paisFormatado = "";
+    if(pais != ""){
+      String primeiraLetra = pais.substring(0,1);
+      paisFormatado = pais.replaceFirst(primeiraLetra, primeiraLetra.toUpperCase());
+    }
     paises?.forEach((p) {
-      if(p["name"] == pais){
+      if(p["name"] == paisFormatado){
         filtro.add(p);
       }
     });
