@@ -3,7 +3,9 @@ import 'package:sigla_paises_flutter/view/menu.dart';
 import 'package:sigla_paises_flutter/view/paises_dados.dart';
 
 class PaisesScreen extends StatelessWidget {
-  const PaisesScreen({super.key});
+  final String pais;
+
+  const PaisesScreen({super.key, this.pais = ""});
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +16,8 @@ class PaisesScreen extends StatelessWidget {
           IconButton(onPressed: (){}, icon: const Icon(Icons.refresh))
         ],
       ),
-      body: const PaisesDados(),
-      drawer: const Menu(),
+      body: PaisesDados(pais: pais),
+      drawer: Menu(),
     );
   }
 }

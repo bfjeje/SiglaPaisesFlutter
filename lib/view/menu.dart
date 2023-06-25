@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:sigla_paises_flutter/view/ajuda.dart';
+import 'package:sigla_paises_flutter/view/paises_screen.dart';
 
 class Menu extends StatelessWidget {
-  const Menu({super.key});
+  Menu({super.key});
+
+  final TextEditingController search = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +28,57 @@ class Menu extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.search),
               title: const Text("Pesquisar"),
-              onTap: () => {},
+              onTap: () => {
+                Navigator.pop(context),
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) => SimpleDialog(
+                          title: const Text("Digite o nome do país"),
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: TextField(
+                                controller: search,
+                              ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: const Text("Cancelar")),
+                                TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) =>
+                                                  PaisesScreen(
+                                                      pais: search.text)));
+                                    },
+                                    child: const Text(
+                                      "OK",
+                                      style:
+                                          TextStyle(color: Colors.blueAccent),
+                                    ))
+                              ],
+                            )
+                          ],
+                        ))
+              },
             ),
             ListTile(
               leading: const Icon(Icons.help),
               title: const Text("Ajuda"),
               onTap: () {
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder:
-                  (BuildContext context) => const Ajuda()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => const Ajuda()));
               },
             )
           ],
