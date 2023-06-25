@@ -12,6 +12,7 @@ class PaisesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Siglas dos Países"),
+        backgroundColor: Colors.orangeAccent,
         actions: [
           IconButton(onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => PaisesScreen(pais: "",)));

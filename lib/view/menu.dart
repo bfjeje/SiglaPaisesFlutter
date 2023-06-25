@@ -16,7 +16,7 @@ class Menu extends StatelessWidget with Mensagem {
           children: [
             Container(
               alignment: Alignment.center,
-              color: Colors.blue,
+              color: Colors.orangeAccent,
               height: 100.0,
               child: const Text(
                 "Menu",
@@ -46,12 +46,16 @@ class Menu extends StatelessWidget with Mensagem {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 TextButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                      showMensagem(
-                                          "Operação cancelada", context);
-                                    },
-                                    child: const Text("Cancelar")),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                    showMensagem("Operação cancelada", context);
+                                  },
+                                  child: const Text(
+                                    "Cancelar",
+                                    style:
+                                        TextStyle(color: Colors.black),
+                                  ),
+                                ),
                                 TextButton(
                                     onPressed: () {
                                       Navigator.pop(context);
@@ -68,7 +72,7 @@ class Menu extends StatelessWidget with Mensagem {
                                     child: const Text(
                                       "OK",
                                       style:
-                                          TextStyle(color: Colors.blueAccent),
+                                          TextStyle(color: Colors.orangeAccent),
                                     ))
                               ],
                             )

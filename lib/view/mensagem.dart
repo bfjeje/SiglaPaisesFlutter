@@ -8,7 +8,7 @@ mixin Mensagem {
     Toast.show(msg,
         duration: duration ?? Toast.lengthLong,
         gravity: gravity ?? Toast.bottom,
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Colors.orangeAccent,
         textStyle: const TextStyle(color: Colors.black),
         backgroundRadius: 3.0);
   }

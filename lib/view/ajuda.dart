@@ -8,6 +8,7 @@ class Ajuda extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Ajuda"),
+        backgroundColor: Colors.orangeAccent,
       ),
       body: const Padding(
         padding: EdgeInsets.all(20.0),
