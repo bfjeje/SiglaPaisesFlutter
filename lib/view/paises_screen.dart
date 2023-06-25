@@ -13,7 +13,9 @@ class PaisesScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Siglas dos Países"),
         actions: [
-          IconButton(onPressed: (){}, icon: const Icon(Icons.refresh))
+          IconButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => PaisesScreen(pais: "",)));
+          }, icon: const Icon(Icons.refresh))
         ],
       ),
       body: PaisesDados(pais: pais),
