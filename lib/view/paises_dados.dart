@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:sigla_paises_flutter/service/requisicao.dart';
 
 class PaisesDados extends StatefulWidget {
-
   final String pais;
 
-  PaisesDados({this.pais = ""});
+  const PaisesDados({super.key, this.pais = ""});
 
   @override
   State<PaisesDados> createState() => _PaisesDadosState();
@@ -20,12 +19,13 @@ class _PaisesDadosState extends State<PaisesDados> {
             future: Requisicao.requisicaoPaises(),
             builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
               if (snapshot.hasData) {
-                List<Map<String, dynamic>>? paises = snapshot.data?.cast<Map<String, dynamic>>();
+                List<Map<String, dynamic>>? paises =
+                    snapshot.data?.cast<Map<String, dynamic>>();
                 return _listaPaises(_filtraPais(widget.pais, paises, context));
               } else {
                 return Container(
                   alignment: Alignment.center,
-                  child: Padding(
+                  child: const Padding(
                     padding: EdgeInsets.all(50.0),
                     child: Text(
                       "Carregando ...",
@@ -49,7 +49,7 @@ class _PaisesDadosState extends State<PaisesDados> {
                     child: ExpansionTile(
                       title: Text(
                         "${paises[index]["name"]}",
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.blueAccent,
                             fontWeight: FontWeight.bold,
                             fontSize: 20.0),
@@ -61,7 +61,7 @@ class _PaisesDadosState extends State<PaisesDados> {
                             alignment: Alignment.centerLeft,
                             child: Text(
                               "${paises[index]["code"] ?? "--"}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Colors.grey,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16.0),
@@ -74,7 +74,7 @@ class _PaisesDadosState extends State<PaisesDados> {
                 }))
         : Container(
             alignment: Alignment.center,
-            child: Padding(
+            child: const Padding(
               padding: EdgeInsets.all(50.0),
               child: Text(
                 "Carregando ...",
@@ -84,15 +84,17 @@ class _PaisesDadosState extends State<PaisesDados> {
           );
   }
 
-  List<Map<String, dynamic>>? _filtraPais(String pais, List<Map<String, dynamic>>? paises, BuildContext context) {
+  List<Map<String, dynamic>>? _filtraPais(
+      String pais, List<Map<String, dynamic>>? paises, BuildContext context) {
     List<Map<String, dynamic>> filtro = List.empty(growable: true);
     String paisFormatado = "";
-    if(pais != ""){
-      String primeiraLetra = pais.substring(0,1);
-      paisFormatado = pais.replaceFirst(primeiraLetra, primeiraLetra.toUpperCase());
+    if (pais != "") {
+      String primeiraLetra = pais.substring(0, 1);
+      paisFormatado =
+          pais.replaceFirst(primeiraLetra, primeiraLetra.toUpperCase());
     }
     paises?.forEach((p) {
-      if(p["name"] == paisFormatado){
+      if (p["name"] == paisFormatado) {
         filtro.add(p);
       }
     });

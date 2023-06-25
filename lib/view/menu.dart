@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sigla_paises_flutter/view/ajuda.dart';
+import 'package:sigla_paises_flutter/view/mensagem.dart';
 import 'package:sigla_paises_flutter/view/paises_screen.dart';
 
-class Menu extends StatelessWidget {
+class Menu extends StatelessWidget with Mensagem {
   Menu({super.key});
 
   final TextEditingController search = TextEditingController();
@@ -47,6 +48,8 @@ class Menu extends StatelessWidget {
                                 TextButton(
                                     onPressed: () {
                                       Navigator.pop(context);
+                                      showMensagem(
+                                          "Operação cancelada", context);
                                     },
                                     child: const Text("Cancelar")),
                                 TextButton(
@@ -58,6 +61,9 @@ class Menu extends StatelessWidget {
                                               builder: (BuildContext context) =>
                                                   PaisesScreen(
                                                       pais: search.text)));
+                                      showMensagem(
+                                          "Pesquisa realizada para o país ${search.text}.",
+                                          context);
                                     },
                                     child: const Text(
                                       "OK",

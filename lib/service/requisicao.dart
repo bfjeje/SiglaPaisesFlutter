@@ -7,7 +7,7 @@ class Requisicao{
 
   static Future<List> requisicaoPaises() async {
 
-    Map paises = Map();
+    Map paises = {};
     var url = Uri.https('api.nobelprize.org', '/v1/country.json');
 
     http.Response response = await http.get(url);
